@@ -1,0 +1,191 @@
+.logo {
+    width: 40px;
+}
+.header {
+    background: var(--color-black);
+    color: var(--color-white);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 99;
+}
+.header-container {
+   padding: 8px 0;
+   justify-content: space-between;
+    align-items: center;
+}
+.my-account {
+    margin-top: 40px;
+}
+
+.my-account-container {
+    margin: 0 15%;
+}
+.form-row-po {
+    position: relative;
+}
+.form-row-po > svg {
+    position: absolute;
+    
+    right: 2%;
+    bottom: 14.5%;}
+
+.form {
+    position: relative;
+    background: var(--color-transparentWhite);
+    max-width: 512px;
+    height:700px;
+    margin:0 auto;
+    border-radius: 4px;
+}
+.form .head {
+  width:100%;
+  height:55px;
+  display:flex;
+  border-bottom: 0.5px solid var( --color-greyish);
+}
+.form .head > div {
+  width:50%;
+  height:100%;
+  text-align:center;
+  line-height:55px;
+  cursor:pointer;
+  background:transparent;
+  text-transform:uppercase;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.form .head.signup > div:nth-child(2),.form .head > div:nth-child(1) {
+  background:var( --color-lightGray);
+ border-bottom: 2px solid var(--color-darkGray);
+}
+
+.form .head.signup > div:nth-child(1) {
+background:transparent !important;
+border-bottom: none !important;
+}
+.form .body {
+  position:absolute;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+}
+.form .body > div {
+  position:absolute;
+  width:100%;
+  height:100%;
+  transition:all 300ms ease-in-out;
+}
+.form .body .form-row label {
+  display:block;
+  padding-top: 1.5rem;
+  font-size:14px;
+  font-weight:600;
+  text-transform:uppercase;
+}
+.form .body .form-row input {
+  width:97%;
+  border:none;
+  outline:none;
+  height:3.5rem;
+  text-indent:10px;
+  font-size:14px;
+  border: 1px solid var(--color-darkGray);
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  border-width: 1px;
+  margin-left:  0.5rem;
+}
+
+.form .body .form-row button {
+  width:97%;
+  border:none;
+  outline:none;
+  height:3.5rem;
+  background-color:  var(--color-darkGreen);
+  text-transform:uppercase;
+  color:var(--color-white);
+  font-size:16px;
+  cursor:pointer;
+  font-weight: 700;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  margin-left:  0.5rem;
+
+
+}
+
+.form .body .rem-row {
+  padding:15px 15px 15px 0;
+  line-height:30px;
+}
+.form .body .rem-row > input {
+  width:17px;
+  height:17px;
+  border:1px solid var(--color-mediumGray);
+  border-radius:0px;
+  position:relative;
+  top:3px;
+}
+.form .body .rem-row > label {
+  font-size:15px;
+  margin-left:5px;
+  cursor:pointer;
+  font-weight: 300;
+}
+.form .body .row {
+  text-align:center;
+  padding:8px 0px;
+}
+.form .body .row span {
+  font-size:14px;
+  position:relative;
+  color: var(--color-black-500);
+  top:5px;
+  font-weight:600;
+}
+.form .body .footer {
+  position:absolute;
+  bottom:50px;
+  width:100%;
+  border-top:1px solid var(--color-greyish);
+}
+.form .body .footer > div.social-form {
+  float:left;
+  padding-left:50px;
+  width:100%;
+  height:40px;
+  line-height:40px;
+  text-indent:2%;
+  color:var(--color-lightGray);
+  position:relative;
+  font-size:14px;
+  cursor:pointer;
+}
+.form .body .footer i {
+  position:absolute;
+  width:40px;
+  height:40px;
+  left:0px;
+  line-height:40px;
+  background:var(--color-transparentBlack30);
+  text-align:center;
+}
+.btn-acction:active {
+  background-color: var(--color-mediumDarkGreen) !important;
+} 
+.btn-acction:hover {
+ font-weight: 800 !important;
+} 
+.icon-back {
+  color: var(--color-blac);
+  text-decoration: none;
+}
+.icon-back i {
+  padding-right: 5px;
+}
+.invalid-feedback {
+  margin-left: 0.5rem;
+}
+

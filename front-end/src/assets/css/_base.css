@@ -1,0 +1,164 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-padding-top: 9rem; 
+}
+
+html::-webkit-scrollbar-track{
+background-color: transparent;}
+
+html::-webkit-scrollbar-thumb{
+  background-color: var(--color-white);
+  border-radius: 5rem;
+  width: 5px;
+}
+
+
+body {
+  background: var(--color-white);
+  font-family: var( --font-ro);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+}
+main {
+  position: relative;
+  padding-bottom: 2rem;
+}
+img,
+iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+} 
+
+i, button, a , svg {
+  cursor: pointer;
+}
+button {
+  background-color: inherit;
+}
+
+/* font-family */
+.header , .navbar {
+  font-family: var(--font-mon);
+}
+.sub-menu {
+  font-family: var(--font-ro);
+}
+  /* container */
+  .lu-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+.lu-container-fluid {
+    margin: 0 auto;
+  }
+
+  h1{
+    font-family: var(--font-mon) !important;
+    font-weight: 700 !important;
+    font-size: 2rem !important;
+  
+  }
+  
+  .lu-h2{
+    font-family: var(--font-mon);
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+
+  a{
+      color: var(--color-black);
+  }
+  
+  .lu-h3 {
+      font-family: var(--font-mon);
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      color: var(--color-black);
+    }
+    
+    .lu-h4{
+      font-family: var(--font-mon);
+      font-size: 1rem;
+      line-height: calc(20 / 16);
+    }
+   .lu-h5 {
+    font-size: 0.875rem;
+   }
+   .btn-room {
+    border-radius: 5px;
+    color: var(--color-white);
+   }
+ 
+  
+   /* fix */
+   .chess-square-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: none;
+    gap: 10px;
+  }
+
+  .chess-size {
+    border: var(--border-greyish);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+ 
+ .lu-container-header .btn-room{
+  border-radius: 50%;
+  width: 155px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup-body-height {
+  /* max-height: 276px; */
+  overflow: auto;
+  display: grid;
+  height: 297px;
+}
+.link-un-decoration{
+  text-decoration: none;
+}
+.text-name-kypho{
+  font-size: 12px;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-10px);
+  }
+}
+
+.loading-text span {
+  display: inline-block;
+  animation: bounce 1.5s infinite alternate;
+  animation-delay: calc(0.1s * var(--index));
+}

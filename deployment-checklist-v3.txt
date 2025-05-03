@@ -1,0 +1,159 @@
+LONG PHUONG KI GAME V3 - DEPLOYMENT CHECKLIST
+==============================================
+
+This checklist provides a step-by-step guide to deploy version 3 of your application to Fly.io and MongoDB Atlas.
+
+PREPARATION PHASE
+----------------
+□ 1. Ensure your codebase is ready for deployment
+   □ Run tests locally to verify functionality
+   □ Check for any environment-specific configurations
+   □ Verify that all dependencies are properly listed in package.json
+
+□ 2. Initialize Git in your project (if not already done)
+   □ Open terminal/command prompt in your project root directory
+   □ Run: git init
+   □ Run: git add .
+   □ Run: git commit -m "Initial commit for v3"
+
+□ 3. Verify .gitignore file
+   □ Ensure node_modules/ is included
+   □ Ensure .env files are included
+   □ Ensure any other files/folders that shouldn't be in version control are included
+
+MONGODB ATLAS SETUP
+------------------
+□ 1. Use the existing MongoDB Atlas database
+   □ Verify that your database connection string is still valid
+   □ Check if you need to update any database schemas for v3
+
+FLY.IO SETUP
+-----------
+□ 1. Ensure Flyctl CLI is installed and you're logged in
+   □ Verify installation: flyctl version
+   □ If not logged in, run: flyctl auth login
+
+BACK-END DEPLOYMENT
+------------------
+□ 1. Navigate to the back-end directory
+   □ The Dockerfile has been copied from v2 and is ready to use
+
+□ 2. Update the existing Fly.io application
+   □ Since we're using the same app name (long-phuong-backend-fragrant-silence-300), we'll update the existing deployment
+   □ Run: flyctl deploy
+   □ This will use the existing fly.toml configuration
+
+□ 3. Update environment variables if needed
+   □ If you have new environment variables for v3, set them:
+     □ flyctl secrets set NEW_VAR="value"
+   □ If you need to update existing variables:
+     □ flyctl secrets set EXISTING_VAR="new_value"
+
+□ 4. Verify the back-end deployment
+   □ Check the logs: flyctl logs -a long-phuong-backend-fragrant-silence-300
+   □ Verify the application is running: flyctl status -a long-phuong-backend-fragrant-silence-300
+
+FRONT-END DEPLOYMENT
+-------------------
+□ 1. Navigate to the front-end directory
+   □ The Dockerfile has been copied from v2 and is ready to use
+   □ The nginx.conf file has been copied from v2 and is ready to use
+
+□ 2. Update the existing Fly.io application
+   □ Since we're using the same app name (long-phuong-frontend), we'll update the existing deployment
+   □ Run: flyctl deploy
+   □ This will use the existing fly.toml configuration
+
+□ 3. Update environment variables if needed
+   □ If you have new environment variables for v3, update them in fly.toml
+   □ The VITE_API_URL and VITE_SOCKET_URL should remain the same if you're using the same backend
+
+□ 4. Verify the front-end deployment
+   □ Check the logs: flyctl logs -a long-phuong-frontend
+   □ Verify the application is running: flyctl status -a long-phuong-frontend
+
+TESTING & FINALIZATION
+---------------------
+□ 1. Test the front-end
+   □ Open the front-end URL in your browser: https://long-phuong-frontend.fly.dev
+   □ Test user registration and login
+   □ Verify that the application loads correctly
+   □ Test any new features in v3
+
+□ 2. Test the back-end API
+   □ Test API endpoints using the browser or a tool like Postman
+   □ Verify that the API responds correctly
+   □ Test any new endpoints added in v3
+
+□ 3. Test WebSocket functionality
+   □ Test real-time features like chat and game moves
+   □ Verify that WebSocket connections work properly
+
+□ 4. Monitor application
+   □ Check Fly.io logs: flyctl logs
+   □ Monitor application metrics: flyctl dashboard
+   □ Monitor MongoDB Atlas for database connections
+
+DATABASE MIGRATION (IF NEEDED)
+----------------------------
+□ 1. If v3 includes database schema changes:
+   □ Create a migration script to update existing data
+   □ Test the migration script on a copy of the production data
+   □ Run the migration script on the production database
+   □ Verify data integrity after migration
+
+ROLLBACK PLAN
+------------
+□ 1. Prepare a rollback strategy in case of issues
+   □ Document the current version's image ID:
+     □ flyctl image show -a long-phuong-backend-fragrant-silence-300
+     □ flyctl image show -a long-phuong-frontend
+   □ If needed, roll back to previous version:
+     □ flyctl deploy --image [previous-image-id] -a long-phuong-backend-fragrant-silence-300
+     □ flyctl deploy --image [previous-image-id] -a long-phuong-frontend
+
+TROUBLESHOOTING COMMON ISSUES
+----------------------------
+□ If the front-end can't connect to the back-end:
+  □ Check environment variables in fly.toml
+  □ Verify CORS settings in the back-end
+  □ Check Fly.io logs: flyctl logs -a long-phuong-backend-fragrant-silence-300
+
+□ If WebSockets aren't working:
+  □ Ensure the socket server is running
+  □ Check Fly.io logs for WebSocket connection issues
+  □ Verify that your Dockerfile exposes the correct ports
+  □ Run: flyctl status -a long-phuong-backend-fragrant-silence-300 to check app health
+
+□ If MongoDB connection fails:
+  □ Verify the connection string in your environment variables
+  □ Check network access settings in MongoDB Atlas
+  □ Make sure your Fly.io IP address is still in the MongoDB Atlas whitelist
+  □ If the IP has changed:
+    □ Find your Fly.io application's IP address:
+      □ fly ips list -a long-phuong-backend-fragrant-silence-300
+    □ Log in to MongoDB Atlas
+    □ Go to Network Access
+    □ Add the new IP Address
+
+□ If deployment fails:
+  □ Check Dockerfile for errors
+  □ Verify fly.toml configuration
+  □ Run: flyctl doctor to check for common issues
+
+POST-DEPLOYMENT TASKS
+-------------------
+□ 1. Document changes in v3
+   □ Update any user documentation
+   □ Notify users of new features or changes
+
+□ 2. Monitor performance
+   □ Watch for any performance issues with the new version
+   □ Optimize if necessary
+
+□ 3. Backup the database
+   □ Create a backup of the MongoDB database after successful deployment
+
+CONGRATULATIONS!
+--------------
+Version 3 of your Long Phuong Ki game should now be successfully deployed and accessible to your users!

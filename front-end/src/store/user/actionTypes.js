@@ -1,0 +1,4 @@
+
+export const GET_USER_INFO_SUCCESS = "GET_USER_INFO_SUCCESS"
+export const GET_USER_INFO = "GET_USER_INFO"
+export const API_ERROR = "USER_API_ERROR"

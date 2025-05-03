@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "allowJs": true,
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "moduleResolution": "node",
+    "rootDir": "src",
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "./dist/**/*"
+  ],
+  "files": ["src/extentions/express-extention.d.ts"]
+}

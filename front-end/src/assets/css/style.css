@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* Base */
+@import "./_base.css";
+@import "./_utilities.css";
+@import "./_variables.css";
+
+
+/* page */
+@import "./page/_account.css";
+
+@import "./page/_lobby.css";
+@import "./page/_room.css";
+@import "./page/_chat.css";
+@import "./page/_reposive.css";
+@import "./page/_playerInfor.css";
+
+@import "./_board.css";

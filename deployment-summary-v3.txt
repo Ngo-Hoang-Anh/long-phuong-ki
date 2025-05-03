@@ -1,0 +1,68 @@
+LONG PHUONG KI GAME V3 - DEPLOYMENT SUMMARY
+===========================================
+
+DEPLOYMENT OVERVIEW
+------------------
+This document summarizes the deployment process for version 3 of the Long Phuong Ki game, which will be deployed to the same infrastructure as version 2.
+
+SERVICES USED
+------------
+1. Fly.io - Front-end and Back-end hosting (same instances as v2)
+2. MongoDB Atlas - Database hosting (same database as v2)
+3. Custom Domain (if configured in v2) - Same domain will be used
+
+KEY DIFFERENCES FROM V2
+----------------------
+- Reusing the same Fly.io applications (long-phuong-backend-fragrant-silence-300 and long-phuong-frontend)
+- Updating the existing deployments rather than creating new ones
+- Maintaining the same MongoDB Atlas database connection
+
+DEPLOYMENT STRATEGY
+-----------------
+1. In-place update of the existing Fly.io applications
+2. Zero-downtime deployment (if possible)
+3. Ability to roll back to v2 if issues are encountered
+
+ESTIMATED COSTS
+--------------
+The cost structure remains the same as v2:
+
+Fly.io:
+- Free tier: 3 shared-CPU VMs with 256MB RAM each
+- 160GB outbound data transfer/month
+- COST: $0/month for your usage pattern (2-4 users, ~5 hours per week)
+
+MongoDB Atlas:
+- M0 Free Tier (512MB storage)
+- COST: $0/month
+
+Custom Domain (if applicable):
+- Renewal costs: ~$15-20/year
+
+TOTAL MONTHLY COST: $0/month (within free tier limits)
+
+DEPLOYMENT STEPS SUMMARY
+----------------------
+1. Copy deployment files from v2 to v3 (Dockerfiles, fly.toml, nginx.conf)
+2. Deploy the back-end to the existing Fly.io application
+3. Deploy the front-end to the existing Fly.io application
+4. Test all functionality
+5. Monitor for any issues
+
+ROLLBACK PLAN
+------------
+If issues are encountered with v3:
+1. Document the current image IDs before deployment
+2. If needed, roll back to v2 using the previous image IDs:
+   - flyctl deploy --image [v2-image-id] -a long-phuong-backend-fragrant-silence-300
+   - flyctl deploy --image [v2-image-id] -a long-phuong-frontend
+
+MAINTENANCE CONSIDERATIONS
+------------------------
+1. Database growth - Monitor MongoDB Atlas usage to ensure you stay within free tier limits
+2. Fly.io resource usage - Monitor CPU and memory usage to ensure you stay within free tier limits
+3. Regular backups - Consider implementing regular database backups
+
+CONCLUSION
+---------
+Deploying v3 to the same infrastructure as v2 provides a cost-effective and straightforward approach. By reusing the existing Fly.io applications and MongoDB Atlas database, you minimize the risk of configuration issues and maintain the same URLs for your users.

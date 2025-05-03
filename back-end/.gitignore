@@ -1,0 +1,39 @@
+# Node.js dependencies
+node_modules/
+
+# TypeScript build output
+dist/
+
+# Visual Studio Code settings
+.vscode/
+
+# Mac-specific files
+.DS_Store
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# IDE-specific files (e.g., WebStorm, IntelliJ IDEA)
+.idea/
+
+# Compiled JavaScript files
+*.js
+
+
+# npm debug logs
+npm-debug.log
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Ignore your local .env file if you use one
+.env.local
+
+# macOS thumbnail settings
+._*
+
+# Windows folder config file
+Thumbs.db
