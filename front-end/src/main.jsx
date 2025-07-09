@@ -9,26 +9,29 @@ import { Provider } from 'react-redux'
 import { ToastContainer } from 'react-toastify';
 import './i18n';
 import { ThemeProvider } from './components/common/ThemeProvider';
+import { ChessPieceThemeProvider } from './components/common/ChessPieceThemeProvider';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <ThemeProvider>
-      <BrowserRouter>
-        <App />
-        <ToastContainer
-          position="top-center"
-          autoClose={3000}
-          hideProgressBar
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme='colored'
-        />
-      </BrowserRouter>
+      <ChessPieceThemeProvider>
+        <BrowserRouter>
+          <App />
+          <ToastContainer
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme='colored'
+          />
+        </BrowserRouter>
+      </ChessPieceThemeProvider>
     </ThemeProvider>
   </Provider>
 )

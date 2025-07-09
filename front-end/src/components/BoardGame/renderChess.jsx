@@ -1,8 +1,10 @@
 import Proptypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useChessPieceTheme } from '../common/ChessPieceThemeProvider';
 
 function RenderChess({ chessBoard, roomDetail, onClickChess, isOrange, pickChess }) {
+    const { chessTheme } = useChessPieceTheme();
     const userData = useSelector(state => state.user.user?.data);
     // eslint-disable-next-line no-unused-vars
     const [renderBoard, setRenderBoard] = useState([]);
@@ -43,7 +45,7 @@ function RenderChess({ chessBoard, roomDetail, onClickChess, isOrange, pickChess
                                         pointerEvents: 'none'
                                     }}
                                     className="chess-square"
-                                    src={`./image/quan_co/${chessItem.name}.png`}
+                                    src={`./image/${chessTheme}/${chessItem.name}.png`}
                                     alt=""
                                 />
                                 {

@@ -1,7 +1,9 @@
 
 import Proptypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { useChessPieceTheme } from '../../components/common/ChessPieceThemeProvider';
 const PlayerHand = ({ prisons, handleClickChess, isAllow, isResverse }) => {
+    const { chessTheme } = useChessPieceTheme();
     const [state, setState] = useState([]);
     useEffect(() => {
         if (isResverse) {
@@ -18,7 +20,7 @@ const PlayerHand = ({ prisons, handleClickChess, isAllow, isResverse }) => {
         >
             <img
                 className="chess-square"
-                src={`./image/quan_co/${chessItem.name}.png`}
+                src={`./image/${chessTheme}/${chessItem.name}.png`}
                 alt="co"
                 style={{
                     transform: `rotate(${chessItem.rotate}deg)`,

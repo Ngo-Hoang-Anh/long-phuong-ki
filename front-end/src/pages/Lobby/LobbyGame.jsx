@@ -116,7 +116,6 @@ function LobbyGame() {
                                 <button style={{ fontSize: '16px' }} onClick={handleLogout} className="btn btn-info btn-lg">
                                     <i className="fa-solid fa-right-from-bracket"></i> {t('log_out')}
                                 </button>
-
                             </div>
                             <div className="flex-col lobby-side-right-btn lu-gap-4">
                                 <button onClick={onClickCreateRoom} className='search-fr'>{t('create_room')}</button>

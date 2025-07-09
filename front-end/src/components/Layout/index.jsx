@@ -1,14 +1,22 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Logo from '/image/logo.png';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 import { useTranslation } from 'react-i18next'
 import MultipleLanguage from '@/components/Layout/MultipleLanguage';
 import { useTheme } from '../common/ThemeProvider';
+import { useChessPieceTheme } from '../common/ChessPieceThemeProvider';
 
 function Layout(props) {
     const { t } = useTranslation();
     const { theme, toggleTheme } = useTheme();
+    const { chessTheme, setChessTheme } = useChessPieceTheme();
+
+    const toggleChessTheme = () => {
+        const newTheme = chessTheme === 'quan_co' ? 'quan_co_2' : 'quan_co';
+        setChessTheme(newTheme);
+    };
     useEffect(() => {
         document.title = t('header');
     }, []);
@@ -28,7 +36,27 @@ function Layout(props) {
                         </div>
                         <div className='flex gap-4'>
                             <MultipleLanguage />
-                            {/* nút */}
+                            {/* chess piece theme toggle */}
+                            <div className="chess-toggle-container">
+                                <label className="chess-switch" htmlFor="chess-switch">
+                                    <input 
+                                        checked={chessTheme === 'quan_co'} 
+                                        id="chess-switch" 
+                                        type="checkbox" 
+                                        className="chess-circle" 
+                                        onChange={toggleChessTheme} 
+                                    />
+                                </label>
+                                <div className="chess-indicator">
+                                    <div className={`chess-piece ${chessTheme === 'quan_co' ? 'active' : ''}`}>
+                                        <img src="/image/quan_co_2/VC.png" alt="Default" />
+                                    </div>
+                                    <div className={`chess-piece ${chessTheme === 'quan_co_2' ? 'active' : ''}`}>
+                                        <img src="/image/quan_co_2/VX.png" alt="Theme 2" />
+                                    </div>
+                                </div>
+                            </div>
+                            {/* theme toggle */}
                             <div>
                                 <label className="switch" htmlFor="switch">
                                     <input checked={theme === 'light'} id="switch" type="checkbox" className="circle" onChange={toggleTheme} />
@@ -56,5 +84,9 @@ function Layout(props) {
 
     )
 }
+
+Layout.propTypes = {
+    children: PropTypes.node.isRequired
+};
 
 export default Layout

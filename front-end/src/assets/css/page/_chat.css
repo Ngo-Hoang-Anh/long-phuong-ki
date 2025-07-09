@@ -1,261 +1,354 @@
 .chat-container {
-    max-width: 600px;
-    margin: 20px auto;
-    border: var(--border-greyish);
-    border-radius: 5px;
-    overflow: hidden;
+  max-width: 600px;
+  margin: 20px auto;
+  border: var(--border-greyish);
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 h2 {
-    text-align: center;
-    margin: 0;
-    padding: 10px;
-    color: var(--color-white);
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  color: var(--color-white);
 }
 
 .dialog-container {
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    overflow-y: auto;
-    padding: 10px;
-    background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: var(--color-white);
 }
 
 .message {
-    margin: 10px;
-    padding: 8px;
-    border-radius: 5px;
-    max-width: 70%;
+  margin: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  max-width: 70%;
 }
 
 .user-message {
-    align-self: flex-end;
-    background-color: var(--color-brightGreen);
-    color: var(--color-white);
+  align-self: flex-end;
+  background-color: var(--color-brightGreen);
+  color: var(--color-white);
 }
 
 .other-message {
-    align-self: flex-start;
-    background-color: var(--hover-color);
-    color: var(--color-darkGray);
+  align-self: flex-start;
+  background-color: var(--hover-color);
+  color: var(--color-darkGray);
 }
 
 .message-info {
-    font-size: 12px;
-    color: var(--color-mediumGray777);
-    margin-top: 5px;
-    text-align: right;
+  font-size: 12px;
+  color: var(--color-mediumGray777);
+  margin-top: 5px;
+  text-align: right;
 }
 
 .input-container {
-    display: flex;
-    background-color: var(--color-white);
-    padding: 10px;
+  display: flex;
+  background-color: var(--color-white);
+  padding: 10px;
 }
 
 .message-input {
-    flex: 1;
-    padding: 8px;
-    border: var(--border-greyish);
-    border-radius: 5px;
+  flex: 1;
+  padding: 8px;
+  border: var(--border-greyish);
+  border-radius: 5px;
 }
 
 .send-button {
-    padding: 8px;
-    margin-left: 10px;
-    background-color: var(--color-brightGreen);
-    color: var(--color-white);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 8px;
+  margin-left: 10px;
+  background-color: var(--color-brightGreen);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 /* fix */
-.lobby-side-left-header.justify-center.gap-10.flex.bolr-4, .btn-room.justify-center.gap-10.flex.bolr-4 {
- 
-    background-color: var(--color-white); 
-    border-bottom: var(--border-sm);
-    text-align: center;
-    color: var(--color-black);
-    white-space: nowrap;
-    align-items: center;
-    padding: 0.625rem 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+.lobby-side-left-header.justify-center.gap-10.flex.bolr-4,
+.btn-room.justify-center.gap-10.flex.bolr-4 {
+  background-color: var(--color-white);
+  border-bottom: var(--border-sm);
+  text-align: center;
+  color: var(--color-black);
+  white-space: nowrap;
+  align-items: center;
+  padding: 0.625rem 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
-.lobby-side-left-header.justify-center.gap-10.flex.bolr-4:hover, .btn-room.justify-center.gap-10.flex.bolr-4:hover {
-box-shadow: none;
+.lobby-side-left-header.justify-center.gap-10.flex.bolr-4:hover,
+.btn-room.justify-center.gap-10.flex.bolr-4:hover {
+  box-shadow: none;
 }
 .tooltip {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    font-family: "Arial", sans-serif;
-  }
-  
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  .tooltiptext {
-    visibility: hidden;
-    width: 200px;
-    background-color: var(--color-darkGray);
-    color: var(--color-black);
-    text-align: center;
-    border-radius: 5px;
-    padding: 10px;
-    position: absolute;
-    z-index: 1;
-    top: 125%;
-    left: 50%;
-    margin-left: -100px;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  
-  .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    margin-left: -10px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent var(--color-darkGray) transparent;
-  }
-  
-  .tooltip .icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: var(--color-brightGreen);
-    color: var(--color-darkRed);
-    border-radius: 50%;
-    text-align: center;
-    line-height: 20px;
-  }
-  /* nút */
-  /* The switch container */
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-family: "Arial", sans-serif;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: var(--color-darkGray);
+  color: var(--color-black);
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--color-darkGray) transparent;
+}
+
+.tooltip .icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-brightGreen);
+  color: var(--color-darkRed);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+}
+/* nút */
+/* The switch container */
 .switch {
-    --transition: 300ms;
-    --transition500: 500ms;
-    --color-dark: #0c0f14;
-    --color-darkGray: #21262e;
-    --color-gray: #52555a;
-    --color-offwhite: #cecece;
-    --shadow-color: var(--color-dark);
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 60px;
-    height: fit-content;
-    background-color: var(--color-dark);
-    border-radius: 30px;
-    padding: 4px;
-    transition: var(--transition500);
-    user-select: none;
-    cursor: pointer;
-    overflow: hidden;
-  }
-  
-  /* Svg styles */
-  .switch .svg {
-    transition: var(--transition);
-    position: absolute;
-    left: 5px;
-  }
-  .switch .moon {
-    width: 18px;
-    fill: var(--color-gray);
-    opacity: 1;
-  }
-  
-  .switch .sun {
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    left: calc(100% - 21.5px);
-    top: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    scale: 0.8;
-    opacity: 0;
-  }
-  
-  .switch .sun .dot {
-    position: relative;
-    display: block;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: var(--color-dark);
-    background: white;
-    z-index: 1;
-    box-shadow: 11px 0px 0px var(--shadow-color),
-      10.3px 0px 0px var(--shadow-color), -11px 0px 0px var(--shadow-color),
-      -10.3px 0px 0px var(--shadow-color), 0px -11px 0px var(--shadow-color),
-      0px -10.3px 0px var(--shadow-color), 0px 11px 0px var(--shadow-color),
-      0px 10.3px 0px var(--shadow-color), 8px 8px 0px var(--shadow-color),
-      7.3px 7.3px 0px var(--shadow-color), 8px -8px 0px var(--shadow-color),
-      7.3px -7.3px 0px var(--shadow-color), -8px -8px 0px var(--shadow-color),
-      -7.3px -7.3px 0px var(--shadow-color), -8px 8px 0px var(--shadow-color),
-      -7.3px 7.3px 0px var(--shadow-color);
-  }
-  
-  .switch .sun .dot::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: white;
-    border: 2px solid var(--color-dark);
-  }
-  
-  /*checkbox styles */
-  .switch .circle {
-    appearance: none;
-    position: relative;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    left: 0;
-    background-color: var(--color-darkGray);
-    border: 1px solid var(--color-darkGray);
-    transition: var(--transition500);
-    box-shadow: 1px 1px 20px 3px var(--color-darkGray);
-  }
-  
-  .switch:has(.circle:checked) {
-    background: var(--color-offwhite);
-  }
-  
-  .switch .circle:hover {
-    margin-left: 3px;
-  }
-  .switch .circle:checked:hover {
-    margin-left: -3px;
-  }
-  
-  .switch .circle:checked {
-    left: calc(100% - 24px);
-    background: white;
-    border-color: white;
-    box-shadow: 1px 1px 30px 12px white;
-  }
-  
-  .switch:has(.circle:checked) > .sun {
-    opacity: 1;
-  }
-  
-  .switch:has(.circle:checked) > .moon {
-    opacity: 0;
-  }
-  
+  --transition: 300ms;
+  --transition500: 500ms;
+  --color-dark: #0c0f14;
+  --color-darkGray: #21262e;
+  --color-gray: #52555a;
+  --color-offwhite: #cecece;
+  --shadow-color: var(--color-dark);
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 60px;
+  height: fit-content;
+  background-color: var(--color-dark);
+  border-radius: 30px;
+  padding: 4px;
+  transition: var(--transition500);
+  user-select: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Svg styles */
+.switch .svg {
+  transition: var(--transition);
+  position: absolute;
+  left: 5px;
+}
+.switch .moon {
+  width: 18px;
+  fill: var(--color-gray);
+  opacity: 1;
+}
+
+.switch .sun {
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  left: calc(100% - 21.5px);
+  top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scale: 0.8;
+  opacity: 0;
+}
+
+.switch .sun .dot {
+  position: relative;
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-dark);
+  background: white;
+  z-index: 1;
+  box-shadow: 11px 0px 0px var(--shadow-color),
+    10.3px 0px 0px var(--shadow-color), -11px 0px 0px var(--shadow-color),
+    -10.3px 0px 0px var(--shadow-color), 0px -11px 0px var(--shadow-color),
+    0px -10.3px 0px var(--shadow-color), 0px 11px 0px var(--shadow-color),
+    0px 10.3px 0px var(--shadow-color), 8px 8px 0px var(--shadow-color),
+    7.3px 7.3px 0px var(--shadow-color), 8px -8px 0px var(--shadow-color),
+    7.3px -7.3px 0px var(--shadow-color), -8px -8px 0px var(--shadow-color),
+    -7.3px -7.3px 0px var(--shadow-color), -8px 8px 0px var(--shadow-color),
+    -7.3px 7.3px 0px var(--shadow-color);
+}
+
+.switch .sun .dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--color-dark);
+}
+
+/*checkbox styles */
+.switch .circle {
+  appearance: none;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  left: 0;
+  background-color: var(--color-darkGray);
+  border: 1px solid var(--color-darkGray);
+  transition: var(--transition500);
+  box-shadow: 1px 1px 20px 3px var(--color-darkGray);
+}
+
+.switch:has(.circle:checked) {
+  background: var(--color-offwhite);
+}
+
+.switch .circle:hover {
+  margin-left: 3px;
+}
+.switch .circle:checked:hover {
+  margin-left: -3px;
+}
+
+.switch .circle:checked {
+  left: calc(100% - 24px);
+  background: white;
+  border-color: white;
+  box-shadow: 1px 1px 30px 12px white;
+}
+
+.switch:has(.circle:checked) > .sun {
+  opacity: 1;
+}
+
+.switch:has(.circle:checked) > .moon {
+  opacity: 0;
+}
+
+/* Chess piece theme toggle container */
+.chess-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Chess piece theme toggle styles */
+.chess-switch {
+  --transition: 300ms;
+  --transition500: 500ms;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  padding: 4px;
+  transition: var(--transition500);
+  user-select: none;
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
+
+/* Chess piece indicator container */
+.chess-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  position: relative;
+}
+
+/* Chess piece images */
+.chess-indicator .chess-piece {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.chess-indicator .chess-piece.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.chess-indicator .chess-piece img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Checkbox styles for chess toggle */
+.chess-switch .chess-circle {
+  appearance: none;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  left: 0;
+  background-color: #000000;
+  border: 1px solid #000000;
+  transition: var(--transition500);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.chess-switch:has(.chess-circle:checked) {
+  background-color: #ffffff;
+}
+
+.chess-switch .chess-circle:hover {
+  margin-left: 3px;
+}
+
+.chess-switch .chess-circle:checked:hover {
+  margin-left: -3px;
+}
+
+.chess-switch .chess-circle:checked {
+  left: calc(100% - 22px);
+  background-color: #000000;
+  border-color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
