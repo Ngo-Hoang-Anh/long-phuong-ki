@@ -49,7 +49,7 @@ function Layout(props) {
                                 </label>
                                 <div className="chess-indicator">
                                     <div className={`chess-piece ${chessTheme === 'quan_co' ? 'active' : ''}`}>
-                                        <img src="/image/quan_co_2/VC.png" alt="Default" />
+                                        <img src="/image/quan_co/VC.png" alt="Default" />
                                     </div>
                                     <div className={`chess-piece ${chessTheme === 'quan_co_2' ? 'active' : ''}`}>
                                         <img src="/image/quan_co_2/VX.png" alt="Theme 2" />

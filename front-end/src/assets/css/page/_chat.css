@@ -317,6 +317,7 @@ h2 {
   width: 28px;
   height: 28px;
   object-fit: contain;
+  transform: rotate(180deg);
 }
 
 /* Checkbox styles for chess toggle */
