@@ -9,6 +9,18 @@ function RenderChess({ chessBoard, roomDetail, onClickChess, isOrange, pickChess
     // eslint-disable-next-line no-unused-vars
     const [renderBoard, setRenderBoard] = useState([]);
     const [selectedChess, setSelectedChess] = useState(null);
+
+    // Function to get count circle color based on team
+    const getCountCircleColor = (teamType) => {
+        switch (teamType) {
+            case 'C': // Team C (usually first player)
+                return '#4CAF50'; // Green
+            case 'X': // Team X (usually second player)
+                return '#FF9800'; // Orange
+            default:
+                return '#4CAF50'; // Default green
+        }
+    };
     useEffect(() => {
         if (roomDetail.participants[0]?._id === userData._id) {
             const reversed = [...chessBoard.map(item => item.slice().reverse()).slice().reverse()];
@@ -49,7 +61,10 @@ function RenderChess({ chessBoard, roomDetail, onClickChess, isOrange, pickChess
                                     alt=""
                                 />
                                 {
-                                    chessItem.team.length !== 0 ? <div className="count-circle">
+                                    chessItem.team.length !== 0 ? <div 
+                                        className="count-circle"
+                                        style={{ backgroundColor: getCountCircleColor(chessItem.teamType) }}
+                                    >
                                         <span className="count">{chessItem.team.length + 1}</span>
                                     </div> : null
                                 }

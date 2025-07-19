@@ -1,10 +1,9 @@
-
 .chessboard {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(9, 1fr);
-    border: 3px solid var(--color-black);
-    border-radius: 4px;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  border: 3px solid var(--color-black);
+  border-radius: 4px;
 }
 .square:nth-child(3)::after,
 .square:nth-child(12)::after,
@@ -28,212 +27,211 @@
 .square:nth-child(69)::after,
 .square:nth-child(78)::after,
 .square:nth-child(51)::after {
-    content: "";
-    display: block;
-    width: 3px; 
-    height: 100%;
-    background-color: var(--color-black); 
-    position: absolute;
-    right: -1px;
-    top: 0;
+  content: "";
+  display: block;
+  width: 3px;
+  height: 100%;
+  background-color: var(--color-black);
+  position: absolute;
+  right: -1px;
+  top: 0;
 }
 
-
-        .square:nth-child(19),
-        .square:nth-child(20),
-        .square:nth-child(21),
-        .square:nth-child(22),
-        .square:nth-child(23),
-        .square:nth-child(24),
-        .square:nth-child(25),
-        .square:nth-child(26),
-        .square:nth-child(27),
-
-        .square:nth-child(46),
-        .square:nth-child(47),
-        .square:nth-child(48),
-        .square:nth-child(49),
-        .square:nth-child(50),
-        .square:nth-child(51),
-        .square:nth-child(52),
-        .square:nth-child(53),
-        .square:nth-child(54) {
-            border-bottom: 3px solid var(--color-black);
-
-        }
-        @media (max-width:768px) { 
-          .chessboard {
-            border: 2px solid var(--color-black);
-        }
-        .square:nth-child(3)::after,
-        .square:nth-child(12)::after,
-        .square:nth-child(21)::after,
-        .square:nth-child(6)::after,
-        .square:nth-child(15)::after,
-        .square:nth-child(24)::after,
-        .square:nth-child(3)::after,
-        .square:nth-child(12)::after,
-        .square:nth-child(21)::after,
-        .square:nth-child(30)::after,
-        .square:nth-child(39)::after,
-        .square:nth-child(48)::after,
-        .square:nth-child(57)::after,
-        .square:nth-child(66)::after,
-        .square:nth-child(75)::after,
-        .square:nth-child(33)::after,
-        .square:nth-child(42)::after,
-        .square:nth-child(51)::after,
-        .square:nth-child(60)::after,
-        .square:nth-child(69)::after,
-        .square:nth-child(78)::after,
-        .square:nth-child(51)::after {
-            width: 2px; 
-        }
-                .square:nth-child(19),
-                .square:nth-child(20),
-                .square:nth-child(21),
-                .square:nth-child(22),
-                .square:nth-child(23),
-                .square:nth-child(24),
-                .square:nth-child(25),
-                .square:nth-child(26),
-                .square:nth-child(27),
-        
-                .square:nth-child(46),
-                .square:nth-child(47),
-                .square:nth-child(48),
-                .square:nth-child(49),
-                .square:nth-child(50),
-                .square:nth-child(51),
-                .square:nth-child(52),
-                .square:nth-child(53),
-                .square:nth-child(54) {
-                    border-bottom: 2px solid var(--color-black);
-        
-                }
-        }
-.chessboard-wrapper {
-    padding: 0 3%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
+.square:nth-child(19),
+.square:nth-child(20),
+.square:nth-child(21),
+.square:nth-child(22),
+.square:nth-child(23),
+.square:nth-child(24),
+.square:nth-child(25),
+.square:nth-child(26),
+.square:nth-child(27),
+.square:nth-child(46),
+.square:nth-child(47),
+.square:nth-child(48),
+.square:nth-child(49),
+.square:nth-child(50),
+.square:nth-child(51),
+.square:nth-child(52),
+.square:nth-child(53),
+.square:nth-child(54) {
+  border-bottom: 3px solid var(--color-black);
+}
+@media (max-width: 768px) {
+  .chessboard {
+    border: 2px solid var(--color-black);
   }
+  .square:nth-child(3)::after,
+  .square:nth-child(12)::after,
+  .square:nth-child(21)::after,
+  .square:nth-child(6)::after,
+  .square:nth-child(15)::after,
+  .square:nth-child(24)::after,
+  .square:nth-child(3)::after,
+  .square:nth-child(12)::after,
+  .square:nth-child(21)::after,
+  .square:nth-child(30)::after,
+  .square:nth-child(39)::after,
+  .square:nth-child(48)::after,
+  .square:nth-child(57)::after,
+  .square:nth-child(66)::after,
+  .square:nth-child(75)::after,
+  .square:nth-child(33)::after,
+  .square:nth-child(42)::after,
+  .square:nth-child(51)::after,
+  .square:nth-child(60)::after,
+  .square:nth-child(69)::after,
+  .square:nth-child(78)::after,
+  .square:nth-child(51)::after {
+    width: 2px;
+  }
+  .square:nth-child(19),
+  .square:nth-child(20),
+  .square:nth-child(21),
+  .square:nth-child(22),
+  .square:nth-child(23),
+  .square:nth-child(24),
+  .square:nth-child(25),
+  .square:nth-child(26),
+  .square:nth-child(27),
+  .square:nth-child(46),
+  .square:nth-child(47),
+  .square:nth-child(48),
+  .square:nth-child(49),
+  .square:nth-child(50),
+  .square:nth-child(51),
+  .square:nth-child(52),
+  .square:nth-child(53),
+  .square:nth-child(54) {
+    border-bottom: 2px solid var(--color-black);
+  }
+}
+.chessboard-wrapper {
+  padding: 0 3%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
 
 .square {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    border: var(--border-greyish);
-    cursor: grab;
-    position: relative;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border: var(--border-greyish);
+  cursor: grab;
+  position: relative;
 }
 .count-circle {
-    position: absolute;
-    width: 15px; 
-    height: 15px; 
-    border-radius: 50%; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .count {
-    color: white; 
-    font-size: 14px;
-  }
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.count {
+  color: white;
+  font-size: 14px;
+}
 .square:hover {
-    cursor: grab;
+  cursor: grab;
 }
 .square:hover:active {
-    cursor: grabbing;
+  cursor: grabbing;
 }
 .chess-square-inner {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
-
 
 .selected {
-    border: 2px solid var(--color-blue);
+  border: 2px solid var(--color-blue);
 }
 
-.chess-square-inner > .chess-size > .chess-square{
+.chess-square-inner > .chess-size > .chess-square {
   padding-bottom: 0 !important;
 }
-  .close-icon {
-    position: absolute;
-    right: 2px;
-    cursor: pointer;
-    bottom: 0;
-  }
- 
-  i.close-icon.fa-solid.fa-xmark {
-    font-size: 18px ;
-    color: var(--bg-orange-700);
+.close-icon {
+  position: absolute;
+  right: 2px;
+  cursor: pointer;
+  bottom: 0;
 }
-  .btn-play:hover {
-    background-color: var(--color-blue-600);
-  }
-  .btn-play:hover::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    background-color: var(--color-darkGray);
-    color: var(--color-white);
-    padding: 5px;
-    border-radius: 5px;
-    top: 50%; 
-    right: calc(100% + 10px);
-    transform: translateY(-50%); 
-    white-space: nowrap; 
-    opacity: 0; 
-    transition: opacity 0.3s ease; 
-    z-index: 10;
-  }
-  
-  .btn-play:hover::before {
-    opacity: 1; 
-  }
 
-  .countdown-timer {
-    display: inline-block;
-    font-family: 'Arial', sans-serif;
-    font-size: 18px;
-    color: var(--color-darkGray);
-    white-space: nowrap; 
-  }
-  
-  .countdown-timer span {
-    margin-right: 5px;
-    padding: 8px;
-    background-color:  var(--color-lightGray);
-    border-radius: 5px;
-  }
-  
-  .countdown-timer span:last-child {
-    margin-right: 0;
-  }
-  
-  .countdown-timer span:nth-child(odd) {
-    background-color: var(--bg-gray-200);
-  }
-  
-  .countdown-timer span:nth-child(4) {
-    font-weight: bold;
-    margin-left: 10px;
-    color: var(--bg-orange-600); 
-  }
+i.close-icon.fa-solid.fa-xmark {
+  font-size: 18px;
+  color: var(--bg-orange-700);
+}
+.btn-play:hover {
+  background-color: var(--color-blue-600);
+}
+.btn-play:hover::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  background-color: var(--color-darkGray);
+  color: var(--color-white);
+  padding: 5px;
+  border-radius: 5px;
+  top: 50%;
+  right: calc(100% + 10px);
+  transform: translateY(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.btn-play:hover::before {
+  opacity: 1;
+}
+
+.countdown-timer {
+  display: inline-block;
+  font-family: "Arial", sans-serif;
+  font-size: 18px;
+  color: var(--color-darkGray);
+  white-space: nowrap;
+}
+
+.countdown-timer span {
+  margin-right: 5px;
+  padding: 8px;
+  background-color: var(--color-lightGray);
+  border-radius: 5px;
+}
+
+.countdown-timer span:last-child {
+  margin-right: 0;
+}
+
+.countdown-timer span:nth-child(odd) {
+  background-color: var(--bg-gray-200);
+}
+
+.countdown-timer span:nth-child(4) {
+  font-weight: bold;
+  margin-left: 10px;
+  color: var(--bg-orange-600);
+}
 .square {
   position: relative;
 }
 
 .count-circle {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 2px;
+  right: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 .num-chess {
   display: flex;
@@ -264,22 +262,20 @@
   grid-template-rows: repeat(9, 1fr);
   align-items: center;
   justify-content: center;
-  padding-left:10px;
+  padding-left: 10px;
 }
 .letters-chess span {
   text-align: center;
 }
 
-
-.lu-container-header{
+.lu-container-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.chess-square-box.right .chess-square-inner  {
+.chess-square-box.right .chess-square-inner {
   justify-content: flex-end;
 }
-
 
 .chess-square-inner {
   display: grid;
@@ -298,13 +294,10 @@
   grid-row: 3;
 }
 
-.chess-square-box.right .chess-size:nth-child(5)  {
+.chess-square-box.right .chess-size:nth-child(5) {
   grid-row: 3;
 }
 
-.chess-square-box.right .chess-size:nth-child(3)  {
+.chess-square-box.right .chess-size:nth-child(3) {
   grid-row: 2;
 }
-
-
-
