@@ -353,3 +353,133 @@ h2 {
   border-color: #000000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
+
+/* Desktop controls */
+.desktop-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Mobile settings */
+.mobile-settings {
+  display: none;
+  position: relative;
+}
+
+.settings-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-brightGreen);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.settings-btn:hover {
+  background: var(--color-green600);
+}
+
+.settings-btn i {
+  font-size: 16px;
+}
+
+.settings-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--color-white);
+  border: 1px solid var(--border-gray);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 200px;
+  margin-top: 8px;
+  animation: dropdownFadeIn 0.2s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-gray);
+  color: var(--color-black);
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-controls {
+    display: none;
+  }
+
+  .mobile-settings {
+    display: block;
+  }
+
+  /* Responsive cho các toggle trong dropdown */
+  .settings-dropdown .chess-toggle-container {
+    gap: 8px;
+  }
+
+  .settings-dropdown .chess-switch {
+    width: 50px;
+    height: 25px;
+    padding: 3px;
+  }
+
+  .settings-dropdown .chess-switch .chess-circle {
+    width: 19px;
+    height: 19px;
+  }
+
+  .settings-dropdown .chess-indicator {
+    width: 28px;
+    height: 28px;
+  }
+
+  .settings-dropdown .chess-indicator .chess-piece img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .settings-dropdown .switch {
+    width: 50px;
+    padding: 3px;
+  }
+
+  .settings-dropdown .switch .circle {
+    width: 20px;
+    height: 20px;
+  }
+
+  .settings-dropdown .multiple-language {
+    gap: 6px;
+  }
+
+  .settings-dropdown .language-selector select {
+    padding: 3px 6px;
+    font-size: 12px;
+  }
+}
