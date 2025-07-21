@@ -233,6 +233,16 @@ i.close-icon.fa-solid.fa-xmark {
   justify-content: center;
   z-index: 10;
 }
+
+@media (max-width: 600px) {
+  .count-circle {
+    width: 12px;
+    height: 12px;
+  }
+  .count-circle .count {
+    font-size: 10px;
+  }
+}
 .num-chess {
   display: flex;
   align-items: center;
