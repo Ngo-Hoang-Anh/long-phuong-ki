@@ -2,6 +2,16 @@
 import Proptypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useChessPieceTheme } from '../../components/common/ChessPieceThemeProvider';
+const getCountCircleColor = (teamType) => {
+    switch (teamType) {
+        case 'C':
+            return '#4CAF50'; // Green
+        case 'X':
+            return '#FF9800'; // Orange
+        default:
+            return '#4CAF50';
+    }
+};
 const PlayerHand = ({ prisons, handleClickChess, isAllow, isResverse }) => {
     const { chessTheme } = useChessPieceTheme();
     const [state, setState] = useState([]);
@@ -27,7 +37,11 @@ const PlayerHand = ({ prisons, handleClickChess, isAllow, isResverse }) => {
                     pointerEvents: 'none'
                 }}
             />
-            {<div className="count-circle"><span className="count">{chessItem.quantity}</span></div>}
+            {chessItem.quantity > 0 && (
+                <div className="count-circle" style={{ backgroundColor: getCountCircleColor(chessItem.teamType || null) || '#ccc' }}>
+                    <span className="count">{chessItem.quantity}</span>
+                </div>
+            )}
         </div>
     ))
 }

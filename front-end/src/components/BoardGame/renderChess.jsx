@@ -61,12 +61,14 @@ function RenderChess({ chessBoard, roomDetail, onClickChess, isOrange, pickChess
                                     alt=""
                                 />
                                 {
-                                    <div
-                                        className="count-circle"
-                                        style={{ backgroundColor: getCountCircleColor(chessItem.teamType || null) || '#ccc' }}
-                                    >
-                                        <span className="count">{(chessItem.team.length || 0) + (chessItem.team.length !== 0 ? 1 : 0)}</span>
-                                    </div>
+                                    chessItem.team.length > 0 && (
+                                        <div
+                                            className="count-circle"
+                                            style={{ backgroundColor: getCountCircleColor(chessItem.teamType || null) || '#ccc' }}
+                                        >
+                                            <span className="count">{(chessItem.team.length || 0) + (chessItem.team.length !== 0 ? 1 : 0)}</span>
+                                        </div>
+                                    )
                                 }
                             </div>
                             : null}
