@@ -322,219 +322,104 @@ const recommendMoveTuong = (startRow, startCol, rotateStr) => {
     return res;
   }
 };
-const recommendMoveVuong = (startRow, startCol, rotateStr) => {
+const recommendMoveVuong = (startRow, startCol) => {
   const res = [];
-  if (rotateStr === RotateType.straight) {
-    startRow - 1 >= 0 && res.push({ row: startRow - 1, col: startCol }); // center
-    startRow - 1 >= 0 &&
-      startCol + 1 < 9 &&
-      res.push({ row: startRow - 1, col: startCol + 1 }); // center right
-    startRow - 1 >= 0 &&
-      startCol - 1 >= 0 &&
-      res.push({ row: startRow - 1, col: startCol - 1 }); // center left
-    startCol - 1 >= 0 && res.push({ row: startRow, col: startCol - 1 }); // left
-    startCol + 1 < 9 && res.push({ row: startRow, col: startCol + 1 }); // right
-    startRow + 1 < 9 && res.push({ row: startRow + 1, col: startCol }); // down
-    startRow + 1 < 9 &&
-      startCol - 1 >= 0 &&
-      res.push({ row: startRow + 1, col: startCol - 1 }); // down left
-    startRow + 1 < 9 &&
-      startCol + 1 < 9 &&
-      res.push({ row: startRow + 1, col: startCol + 1 }); // down right
+  // 8 hướng xung quanh
+  if (startRow - 1 >= 0) res.push({ row: startRow - 1, col: startCol }); // lên
+  if (startRow + 1 < 9) res.push({ row: startRow + 1, col: startCol }); // xuống
+  if (startCol - 1 >= 0) res.push({ row: startRow, col: startCol - 1 }); // trái
+  if (startCol + 1 < 9) res.push({ row: startRow, col: startCol + 1 }); // phải
+  if (startRow - 1 >= 0 && startCol - 1 >= 0)
+    res.push({ row: startRow - 1, col: startCol - 1 }); // chéo lên trái
+  if (startRow - 1 >= 0 && startCol + 1 < 9)
+    res.push({ row: startRow - 1, col: startCol + 1 }); // chéo lên phải
+  if (startRow + 1 < 9 && startCol - 1 >= 0)
+    res.push({ row: startRow + 1, col: startCol - 1 }); // chéo xuống trái
+  if (startRow + 1 < 9 && startCol + 1 < 9)
+    res.push({ row: startRow + 1, col: startCol + 1 }); // chéo xuống phải
+  return res;
+};
+const recommendMoveLong = (startRow, startCol, chessboard) => {
+  const res = [];
+  // Đi lên
+  for (let i = startRow - 1; i >= 0; i--) {
+    const element = chessboard[i][startCol];
+    if (element?.teamType) {
+      res.push({ row: i, col: startCol });
+      break;
+    }
+    res.push({ row: i, col: startCol });
   }
-  if (rotateStr === RotateType.right) {
-    startCol + 1 < 9 && res.push({ row: startRow, col: startCol + 1 }); // center
-    startRow + 1 < 9 &&
-      startCol + 1 < 9 &&
-      res.push({ row: startRow + 1, col: startCol + 1 }); // center right
-    startRow - 1 >= 0 &&
-      startCol + 1 < 9 &&
-      res.push({ row: startRow - 1, col: startCol + 1 }); // center left
-    startRow - 1 >= 0 && res.push({ row: startRow - 1, col: startCol }); // left
-    startRow + 1 < 9 && res.push({ row: startRow + 1, col: startCol }); // right
-    startCol - 1 >= 0 && res.push({ row: startRow, col: startCol - 1 }); // down
-    startCol - 1 >= 0 &&
-      startRow - 1 >= 0 &&
-      res.push({ row: startRow - 1, col: startCol - 1 }); // down left
-    startCol - 1 >= 0 &&
-      startRow + 1 < 9 &&
-      res.push({ row: startRow + 1, col: startCol - 1 }); // down right
+  // Đi xuống
+  for (let i = startRow + 1; i < 9; i++) {
+    const element = chessboard[i][startCol];
+    if (element?.teamType) {
+      res.push({ row: i, col: startCol });
+      break;
+    }
+    res.push({ row: i, col: startCol });
   }
-  if (rotateStr === RotateType.down) {
-    startRow + 1 < 9 && res.push({ row: startRow + 1, col: startCol }); // center
-    startRow + 1 < 9 &&
-      startCol - 1 >= 0 &&
-      res.push({ row: startRow + 1, col: startCol - 1 }); // center left
-    startRow + 1 < 9 &&
-      startCol + 1 < 9 &&
-      res.push({ row: startRow + 1, col: startCol + 1 }); // center right
-    startCol - 1 >= 0 && res.push({ row: startRow, col: startCol - 1 }); // left
-    startCol + 1 < 9 && res.push({ row: startRow, col: startCol + 1 }); // right
-    startRow - 1 >= 0 && res.push({ row: startRow - 1, col: startCol }); // up
-    startRow - 1 >= 0 &&
-      startCol - 1 >= 0 &&
-      res.push({ row: startRow - 1, col: startCol - 1 }); // up left
-    startRow - 1 >= 0 &&
-      startCol + 1 < 9 &&
-      res.push({ row: startRow - 1, col: startCol + 1 }); // up right
+  // Đi sang phải
+  for (let i = startCol + 1; i < 9; i++) {
+    const element = chessboard[startRow][i];
+    if (element?.teamType) {
+      res.push({ row: startRow, col: i });
+      break;
+    }
+    res.push({ row: startRow, col: i });
   }
-  if (rotateStr === RotateType.left) {
-    startCol - 1 >= 0 && res.push({ row: startRow, col: startCol - 1 }); // center
-    startRow - 1 >= 0 &&
-      startCol - 1 >= 0 &&
-      res.push({ row: startRow - 1, col: startCol - 1 }); // center left
-    startRow + 1 < 9 &&
-      startCol - 1 >= 0 &&
-      res.push({ row: startRow + 1, col: startCol - 1 }); // center right
-    startRow - 1 >= 0 && res.push({ row: startRow - 1, col: startCol }); // up
-    startRow + 1 < 9 && res.push({ row: startRow + 1, col: startCol }); // down
-    startCol + 1 < 9 && res.push({ row: startRow, col: startCol + 1 }); // right
-    startCol + 1 < 9 &&
-      startRow - 1 >= 0 &&
-      res.push({ row: startRow - 1, col: startCol + 1 }); // up right
-    startCol + 1 < 9 &&
-      startRow + 1 < 9 &&
-      res.push({ row: startRow + 1, col: startCol + 1 }); // down right
+  // Đi sang trái
+  for (let i = startCol - 1; i >= 0; i--) {
+    const element = chessboard[startRow][i];
+    if (element?.teamType) {
+      res.push({ row: startRow, col: i });
+      break;
+    }
+    res.push({ row: startRow, col: i });
   }
   return res;
 };
-const recommendMoveLong = (startRow, startCol, chessboard, rotateStr) => {
+const recommendMovePhuong = (startRow, startCol, chessboard) => {
   const res = [];
-  if (rotateStr === RotateType.straight) {
-    for (let i = startRow - 1; i >= 0; i--) {
-      // straight
-      const element = chessboard[i][startCol];
-      if (element?.teamType) {
-        res.push({ row: i, col: startCol });
-        break;
-      }
-      res.push({ row: i, col: startCol });
-    }
-  }
-  if (rotateStr === RotateType.right) {
-    for (let i = startCol + 1; i < 9; i++) {
-      // right
-      const element = chessboard[startRow][i];
-      if (element?.teamType) {
-        res.push({ row: startRow, col: i });
-        break;
-      }
-      res.push({ col: i, row: startRow });
-    }
-  }
-  if (rotateStr === RotateType.down) {
-    for (let i = startRow + 1; i < 9; i++) {
-      // down
-      const element = chessboard[i][startCol];
-      if (element?.teamType) {
-        res.push({ row: i, col: startCol });
-        break;
-      }
-      res.push({ row: i, col: startCol });
-    }
-  }
-  if (rotateStr === RotateType.left) {
-    for (let i = startCol - 1; i >= 0; i--) {
-      // left
-      const element = chessboard[startRow][i];
-      if (element?.teamType) {
-        res.push({ row: startRow, col: i });
-        break;
-      }
-      res.push({ col: i, row: startRow });
-    }
-  }
-  return res;
-};
-const recommendMovePhuong = (startRow, startCol, chessboard, rotateStr) => {
-  const res = [];
-  if (rotateStr === RotateType.straight) {
-    for (let i = 1; i < 9; i++) {
-      //straight left
-      if (startRow - i < 0 || startCol - i < 0) break;
-      const element = chessboard[startRow - i][startCol - i];
-      if (element?.teamType) {
-        res.push({ row: startRow - i, col: startCol - i });
-        break;
-      }
+  // Chéo lên trái
+  for (let i = 1; i < 9; i++) {
+    if (startRow - i < 0 || startCol - i < 0) break;
+    const element = chessboard[startRow - i][startCol - i];
+    if (element?.teamType) {
       res.push({ row: startRow - i, col: startCol - i });
+      break;
     }
-    for (let i = 1; i < 9; i++) {
-      //straight right
-      if (startRow - i < 0 || startCol + i >= 9) break;
-      const element = chessboard[startRow - i][startCol + i];
-      if (element?.teamType) {
-        res.push({ row: startRow - i, col: startCol + i });
-        break;
-      }
+    res.push({ row: startRow - i, col: startCol - i });
+  }
+  // Chéo lên phải
+  for (let i = 1; i < 9; i++) {
+    if (startRow - i < 0 || startCol + i >= 9) break;
+    const element = chessboard[startRow - i][startCol + i];
+    if (element?.teamType) {
       res.push({ row: startRow - i, col: startCol + i });
+      break;
     }
+    res.push({ row: startRow - i, col: startCol + i });
   }
-  if (rotateStr === RotateType.right) {
-    for (let i = 1; i < 9; i++) {
-      //right up
-      if (startRow - i < 0 || startCol + i >= 9) break;
-      const element = chessboard[startRow - i][startCol + i];
-      if (element?.teamType) {
-        res.push({ row: startRow - i, col: startCol + i });
-        break;
-      }
-      res.push({ row: startRow - i, col: startCol + i });
-    }
-    for (let i = 1; i < 9; i++) {
-      //right down
-      if (startRow + i >= 9 || startCol + i >= 9) break;
-      const element = chessboard[startRow + i][startCol + i];
-      if (element?.teamType) {
-        res.push({ row: startRow + i, col: startCol + i });
-        break;
-      }
-      res.push({ row: startRow + i, col: startCol + i });
-    }
-  }
-  if (rotateStr === RotateType.down) {
-    for (let i = 1; i < 9; i++) {
-      //down left
-      if (startRow + i >= 9 || startCol - i < 0) break;
-      const element = chessboard[startRow + i][startCol - i];
-      if (element?.teamType) {
-        res.push({ row: startRow + i, col: startCol - i });
-        break;
-      }
+  // Chéo xuống trái
+  for (let i = 1; i < 9; i++) {
+    if (startRow + i >= 9 || startCol - i < 0) break;
+    const element = chessboard[startRow + i][startCol - i];
+    if (element?.teamType) {
       res.push({ row: startRow + i, col: startCol - i });
+      break;
     }
-    for (let i = 1; i < 9; i++) {
-      //down right
-      if (startRow + i >= 9 || startCol + i >= 9) break;
-      const element = chessboard[startRow + i][startCol + i];
-      if (element?.teamType) {
-        res.push({ row: startRow + i, col: startCol + i });
-        break;
-      }
-      res.push({ row: startRow + i, col: startCol + i });
-    }
+    res.push({ row: startRow + i, col: startCol - i });
   }
-  if (rotateStr === RotateType.left) {
-    for (let i = 1; i < 9; i++) {
-      //left up
-      if (startRow - i < 0 || startCol - i < 0) break;
-      const element = chessboard[startRow - i][startCol - i];
-      if (element?.teamType) {
-        res.push({ row: startRow - i, col: startCol - i });
-        break;
-      }
-      res.push({ row: startRow - i, col: startCol - i });
+  // Chéo xuống phải
+  for (let i = 1; i < 9; i++) {
+    if (startRow + i >= 9 || startCol + i >= 9) break;
+    const element = chessboard[startRow + i][startCol + i];
+    if (element?.teamType) {
+      res.push({ row: startRow + i, col: startCol + i });
+      break;
     }
-    for (let i = 1; i < 9; i++) {
-      //left down
-      if (startRow + i >= 9 || startCol - i < 0) break;
-      const element = chessboard[startRow + i][startCol - i];
-      if (element?.teamType) {
-        res.push({ row: startRow + i, col: startCol - i });
-        break;
-      }
-      res.push({ row: startRow + i, col: startCol - i });
-    }
+    res.push({ row: startRow + i, col: startCol + i });
   }
   return res;
 };
@@ -557,21 +442,11 @@ export const recommendMove = (startRow, startCol, objChess, chessboard) => {
     case ChessType.Tuong:
       return recommendMoveTuong(startRow, startCol, funcCheckRotate(rotate));
     case ChessType.Vuong:
-      return recommendMoveVuong(startRow, startCol, funcCheckRotate(rotate));
+      return recommendMoveVuong(startRow, startCol);
     case ChessType.Long:
-      return recommendMoveLong(
-        startRow,
-        startCol,
-        chessboard,
-        funcCheckRotate(rotate)
-      );
+      return recommendMoveLong(startRow, startCol, chessboard);
     case ChessType.Phuong:
-      return recommendMovePhuong(
-        startRow,
-        startCol,
-        chessboard,
-        funcCheckRotate(rotate)
-      );
+      return recommendMovePhuong(startRow, startCol, chessboard);
     default:
       break;
   }
@@ -588,8 +463,7 @@ export const checkMate = (turn, chess) => {
   if (vuong) {
     let possibleMoves = recommendMoveVuong(
       vuong.position.row,
-      vuong.position.col,
-      funcCheckRotate(vuong.rotate)
+      vuong.position.col
     ).filter((item) => {
       if (
         chess[item.row][item.col] === null ||

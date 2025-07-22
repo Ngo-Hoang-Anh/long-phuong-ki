@@ -335,3 +335,11 @@ i.close-icon.fa-solid.fa-xmark {
     font-size: 10px;
   }
 }
+.btn-play.disabled,
+.btn-play:disabled {
+  background: #e0e0e0 !important;
+  color: #aaa !important;
+  border: 1px solid #ccc !important;
+  cursor: not-allowed !important;
+  opacity: 0.6;
+}

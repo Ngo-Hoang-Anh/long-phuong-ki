@@ -18,7 +18,6 @@ import useAllowPlayGame from '@/common/hooks/useAllowPlayGame'
 import { ChessType } from '@/common/constants/Enum'
 import { Button, Input, Label } from 'reactstrap'
 import PlayerHand from './PlayerHand'
-import { checkIsSameType } from '@/components/BoardGame/engine'
 import Swal from 'sweetalert2'
 import { useTranslation } from 'react-i18next';
 import moveSound from '/sound/play_chess.mp3';
@@ -146,14 +145,12 @@ function Room({ match }) {
     }
     const buttonClickRotate = useCallback((type) => () => {
         if (!pickChess) return;
-        const { isRotate, position } = pickChess;
+        const { isRotate } = pickChess;
         if (!isRotate) return;
-        if (isAllow && ((roomDetail.gameId.isMoved && position.row === roomDetail.gameId.historyTemp.end.row && position.col === roomDetail.gameId.historyTemp.end.col) || !roomDetail.gameId.isMoved)) {
-            let isSameType = checkIsSameType({ row: position.row, col: position.col, chessboard, piece: pickChess });
+        if (isAllow) {
             socket.emit(ROOM_MOVE_SEND, {
                 type: 'rotate',
                 roomId: roomDetail._id,
-                isSameType,
                 gameId: roomDetail.gameId._id,
                 objChest: pickChess,
                 direction: type
@@ -161,7 +158,7 @@ function Room({ match }) {
         }
         if (roomDetail.gameId.isDrop) return;
         return setPickChess(null);
-    }, [pickChess, roomDetail]);
+    }, [pickChess, roomDetail, isAllow, socket]);
     const buttonClickOk = useCallback(() => {
         isAllow && roomDetail.gameId.isMoved && socket.emit(ROOM_MOVE_SEND, {
             type: 'done',
@@ -270,6 +267,8 @@ function Room({ match }) {
             setPasswordRoom((preState) => ({ ...preState, error: t('incorrect_room_password') }))
         }
     }
+    // Thêm hàm kiểm tra có cho xoay không
+    const canRotate = pickChess && ![ChessType.Long, ChessType.Phuong, ChessType.Vuong].includes(pickChess.type);
     if (!roomDetail) {
         return null
     }
@@ -388,14 +387,12 @@ function Room({ match }) {
                         </div>
                         <div className='chessboard-wrapper' ref={chessBoardRef}>
                             <div className='chessboard-icon'>
-                                <button onClick={buttonClickRotate('left')} className='btn-play' data-tooltip="Xoay Trái">
+                                <button onClick={buttonClickRotate('left')} className={`btn-play${!canRotate ? ' disabled' : ''}`} data-tooltip="Xoay Trái" disabled={!canRotate}>
                                     <i className="fa-solid fa-rotate-left" />
                                 </button>
-
-                                <button onClick={buttonClickRotate('right')} className='btn-play' data-tooltip="Xoay Phải">
+                                <button onClick={buttonClickRotate('right')} className={`btn-play${!canRotate ? ' disabled' : ''}`} data-tooltip="Xoay Phải" disabled={!canRotate}>
                                     <i className="fa-solid fa-rotate-right" />
                                 </button>
-
                                 <button onClick={buttonClickMoveTeam} className='btn-play' data-tooltip={isMoveTeam ? 'Đi đội' : "Không đi đội"}>
                                     <i className="fa-regular fa-clone" />
                                     {!isMoveTeam ? <i className="close-icon fa-solid fa-xmark" /> : null}
